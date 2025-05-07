@@ -1,0 +1,3 @@
+name : omakr wagh 
+class: te
+subject:math git init

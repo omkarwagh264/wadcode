@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registered Users</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f9f9f9;
+        padding: 20px;
+      }
+
+      h2 {
+        text-align: center;
+        color: #333;
+      }
+
+      #userList {
+        max-width: 600px;
+        margin: 20px auto;
+        padding: 0;
+        list-style: none;
+      }
+
+      #userList li {
+        background: #ffffff;
+        border: 1px solid #ddd;
+        margin-bottom: 10px;
+        padding: 15px 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        font-size: 16px;
+      }
+
+      #userList li:nth-child(even) {
+        background-color: #f1f1f1;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Registered Users</h2>
+    <ul id="userList"></ul>
+
+    <script>
+      const users = JSON.parse(localStorage.getItem("users")) || [];
+      const userList = document.getElementById("userList");
+
+      users.forEach((user, index) => {
+        const li = document.createElement("li");
+        li.textContent = `${index + 1}. ${user.name} (${user.email})`;
+        userList.appendChild(li);
+      });
+    </script>
+  </body>
+</html>
